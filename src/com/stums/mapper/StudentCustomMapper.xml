@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.StudentCustomMapper" >
+
+
+
+
+<select id="findStudentViewList" parameterType="stuQueryVo" resultType="studentView">
+	select * from  student_view where student_view.stu_college_id = #{college_id} and
+	student_view.stu_major_id=#{major_id} and student_view.stu_enter_year=#{stu_enter_year} 
+	and student_view.stu_class=#{stu_class}
+</select>
+
+
+<select id="findClassNum" parameterType="Class" resultType="Integer">
+	select count(*) from class_view where class_view.stu_enter_year = #{stu_enter_year} 
+	and class_view.stu_major_id=#{stu_major_id} and class_view.stu_college_id=#{stu_college_id} 
+</select>
+ 
+<select id="findGradeList" parameterType="Integer" resultType="Integer">
+	select DISTINCT class_view.stu_enter_year from class_view WHERE class_view.stu_major_id = #{id} order by class_view.stu_enter_year  ASC 
+</select>
+
+<select id="findStudentView" parameterType="Integer" resultType="studentView">
+		select * from  student_view where student_view.stu_sid=#{id}
+</select>
+
+</mapper>

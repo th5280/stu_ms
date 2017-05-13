@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.TeacherCustomMapper">
+<select id="findTeacherListView" parameterType="Integer" resultType="teacherView">
+	select * from teacher_view where teacher_view.tea_major_id=#{id}
+</select>
+
+<select id="findTeacherView" parameterType="Integer" resultType="teacherView">
+	select * from teacher_view where teacher_view.tea_tid=#{id}
+</select>
+</mapper>

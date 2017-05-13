@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.CourseCustomMapper" >
+	<select id="findCourseViewByTea" resultType="courseView" parameterType="Integer">
+		select * from course_view where course_view.course_teacher_tid=#{id}
+	</select>
+	
+	<select id="findCourseView" resultType="courseView" parameterType="Integer">
+		select * from course_view where course_view.course_id=#{id}
+	</select>
+	
+	<select id="findUnSelectedCourse" resultType="courseView" parameterType="student">
+		SELECT * from course_view where course_view.course_major_id=#{stu_major_id} and course_view.course_id not in ( select selection.select_course_id from selection where 
+		selection.select_stu_sid=#{stu_sid}) 
+	</select>
+	
+	
+</mapper>

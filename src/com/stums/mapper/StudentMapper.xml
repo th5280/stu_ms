@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.StudentMapper" >
+	<update id="editStu" parameterType="student">
+		update student set student.stu_sid=#{stu_sid},student.stu_nid=#{stu_nid},student.stu_name=#{stu_name},student.stu_major_id=#{stu_major_id},
+		student.stu_sex=#{stu_sex},student.stu_tel=#{stu_tel},student.stu_class=#{stu_class},student.stu_college_id=#{stu_college_id} 
+		where student.stu_sid = #{stu_sid}
+	</update>
+	
+	<delete id = "deleteStu" parameterType="Integer">
+		delete from student where student.stu_sid=#{stu_id}
+		
+	</delete>
+	<select id = "getNewStu_id" parameterType="student" resultType="Integer">
+		select max(stu_sid)+1 as new_stu_sid from student where student.stu_major_id=#{stu_major_id} and student.stu_college_id = #{stu_college_id} and student.stu_class=#{stu_class} and 
+		student.stu_enter_year = #{stu_enter_year}
+	</select>
+	<insert id="addStu" parameterType="student">
+		insert into student values(#{stu_sid},#{stu_nid},#{stu_name},#{stu_major_id},#{stu_enter_year},#{stu_sex},#{stu_tel},#{stu_class},#{stu_college_id})
+	</insert>
+	
+	<select id="findStudentBySid" parameterType="Integer" resultType="student">
+		select * from student where student.stu_sid=#{id}
+	</select>
+
+</mapper>

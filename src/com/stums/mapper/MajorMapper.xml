@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.MajorMapper" >
+<select id="findMajorList" resultType="major">
+	select * from major
+</select>
+
+<select id="findMajorListByCollegeId" parameterType="Integer" resultType="major">
+	select * from major where major.major_college_id=#{id}
+</select>
+
+<update id="editMajor" parameterType="major">
+update major set major.major_name=#{major_name},major.major_head_id = #{major_head_id},major.major_college_id=#{major_college_id}
+where major.major_id=#{major_id}
+</update>
+
+<delete id="deleteMajor" parameterType="Integer">
+	delete from major where major.major_id=#{id}
+</delete>
+
+<select id="getNewMajor_id" resultType="Integer">
+	select max(major_id)+1 from major
+</select>
+
+<insert id="addMajor" parameterType="major">
+	insert into major values(#{major_id},#{major_name},#{major_head_id},#{major_college_id})
+</insert>
+
+</mapper>

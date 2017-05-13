@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.TeacherMapper" >
+ 	<delete id="deleteTea" parameterType="Integer">
+ 		delete from teacher where teacher.tea_tid=#{tea_tid}
+ 	</delete>
+ 	<update id="editTea" parameterType="teacher">
+ 		update teacher set teacher.tea_nid=#{tea_nid},teacher.tea_name=#{tea_name},
+ 		teacher.tea_tel=#{tea_tel},teacher.tea_sex=#{tea_sex},teacher.tea_title=#{tea_title},
+ 		teacher.tea_college_id=#{tea_college_id},teacher.tea_major_id=#{tea_major_id} 
+ 		where teacher.tea_tid=#{tea_tid}
+	</update>
+	<select id="getNewTea_id" parameterType="Teacher" resultType="Integer">
+		select max(tea_tid)+1 as new_tea_tid from teacher where teacher.tea_major_id=#{tea_major_id}		
+	</select>
+	
+	<insert id="addTea" parameterType="teacher">
+		insert into teacher values(#{tea_tid},#{tea_nid},#{tea_name},#{tea_tel},#{tea_sex},#{tea_title},#{tea_major_id},#{tea_college_id})
+	</insert>
+	
+	<select id="findTeacherListByCollege" parameterType="Integer" resultType="teacher">
+		select * from teacher where teacher.tea_college_id=#{id}
+	</select>
+
+	<select id="findTeacherListByMajor" parameterType="Integer" resultType="teacher"> 
+		select * from teacher where teacher.tea_major_id=#{id}
+	</select>
+</mapper>

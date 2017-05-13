@@ -1,0 +1,106 @@
+/*右边栏div属性*/
+
+.side {
+	background-color: #00BFFF;
+	width: 20%;
+	float: left;
+	width: 150px;
+	margin: auto 40px auto auto;
+	display: block;
+	float: left;
+}
+
+dt {
+	font: 700 12px/ 26px "Microsoft Yahei";
+	color: #fff;
+	font-size: 20px;
+	padding-left: 20px;
+	margin-bottom: 5px;
+}
+
+dd {
+	margin-right: 15px;
+	font: 700 12px/ 20px "Microsoft Yahei";
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+/*上方标题栏div属性*/
+#top-header {
+	height: 95px;
+	background-color: #00BFFF;
+	border-bottom: 2px groove #4e4e4e;
+	margin-bottom: 10px;
+}
+.operate div{
+	
+	height: 30px;
+	width: 40%;
+	margin: 30px auto 10px auto;
+	font-size:15px;
+	float:left;
+}
+
+.operate .button {
+	height: 30px;
+	width: 100px;
+	margin: 40px 120px;
+}
+
+
+
+/*表格属性*/
+table {
+	width: 600px;
+	margin: 40px auto;
+	font-family: 'trebuchet MS', 'Lucida sans', Arial;
+	font-size: 14px;
+
+	border-spacing: 0;
+	width: 80%;
+	margin-left: 50px;
+}
+
+
+
+.bordered tr:hover {
+	background: #fbf8e9;
+	transition: all 0.1s ease-in-out;
+}
+
+.bordered td,.bordered th {
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+}
+
+table tr:nth-of-type(1) {
+	background-color: #dce9f9;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
+	border-top: none;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+/*下拉框*/
+.query select {
+	width: 185pt;
+	height: 40pt;
+	line-height: 50pt;
+	padding-right: 20pt;
+	text-indent: 4pt;
+	text-align: left;
+	box-shadow: inset 0 0 3px #606060;
+	border: 1px solid #acacac;
+	border-radius: 6px;
+	appearance: none;
+	font-family: Arial, Calibri, Tahoma, Verdana;
+	font-size: 18pt;
+	font-weight: 500;
+	color: #000099;
+	
+}
+
+
+

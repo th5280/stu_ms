@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.SelectionCustomMapper" >
+	<select id="findCourseIdListByStu" parameterType="Integer" resultType="Integer">
+		select select_course_id from selection where select_stu_sid=#{id}
+	</select>
+	<insert id="addSelectedCourse" parameterType="selection">
+		insert into selection(select_course_id,select_stu_sid) values(#{select_course_id},#{select_stu_sid})
+	</insert>
+	
+	<delete id="delSelectedCourse" parameterType="selection">
+		delete from selection where selection.select_course_id=#{select_course_id} and selection.select_stu_sid=#{select_stu_sid}
+	</delete>
+</mapper>

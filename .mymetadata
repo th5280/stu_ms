@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="stu_ms"
+  id="myeclipse.1492335348021"
+  context-root="/stu_ms"
+  j2ee-spec="5.0"
+  archive="stu_ms.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

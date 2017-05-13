@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.CourseMapper" >
+	<insert id="addCourse" parameterType="course">
+		insert into course values(#{course_id},#{course_name},#{course_major_id},#{course_nature},#{course_teacher_tid},#{course_credit},#{course_classroom},#{course_time},#{course_stu_num},#{course_selection})
+	</insert>
+	
+	<select id="getNewCourseId" resultType="Integer">
+		select max(course_id)+1  from course
+	</select>
+	
+	<update id="editCourse" parameterType="course">
+		update course set course.course_name=#{course_name},course.course_major_id=#{course_major_id},course.course_nature=#{course_nature},course.course_teacher_tid=#{course_teacher_tid},course.course_credit=#{course_credit},
+		course.course_classroom=#{course_classroom},course.course_time=#{course_time},course.course_stu_num=#{course_stu_num},course.course_selection=#{course_selection} where course.course_id=#{course_id}
+	</update>
+	
+	<delete id="deleteCourse" parameterType="Integer">
+		delete from course where course.course_id=#{id}
+	</delete>
+	
+	<select id="getSemList" resultType="String" >
+		SELECT DISTINCT SUBSTRING(course_time,1,3) FROM course where course_id in
+		 <foreach collection="course_id_list" item="course_id" index="index"  
+            open="(" close=")" separator=",">  
+            #{course_id}  
+        </foreach>  
+	</select>
+</mapper>
