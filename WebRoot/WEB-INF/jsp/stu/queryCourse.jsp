@@ -141,7 +141,7 @@ function getQuitResult()
 
 
 <table class="bordered" id="course_table">
-    <tr>
+    <tr class="thread">
         <th>课程编号</th>
         <th>课程名称</th>        
         <th>课程性质</th>

@@ -20,7 +20,6 @@ var course_id;
 var class_id;
 function addOption(option_id)
 {
-
 	objarr=http_request.responseText.split(",");
     document.getElementById(option_id).length=1; 
     for(i=0;i<objarr.length;i++)
@@ -176,7 +175,7 @@ function getDeleteResult()
 </div>
 
 <table class="bordered" id="course_table">
-    <tr>
+    <tr class="thread">
         <th>课程编号</th>
         <th>课程名称</th>        
         <th>课程性质</th>
@@ -199,9 +198,7 @@ function select_college(obj)
 		college_id=obj.value;
 		select_id='major_select';
 		createRequest("getMajorList.action?college_id="+obj.value);
-
 	}
-
 }
 function select_major(obj)
 {

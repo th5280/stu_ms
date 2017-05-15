@@ -152,7 +152,7 @@ function getDeleteResult()
 
 </div>
 <table class="bordered" id="tea_table">
-    <tr>
+    <tr class="thread">
         <th>教职工号</th>        
         <th>姓名</th>
         <th>身份证号</th>

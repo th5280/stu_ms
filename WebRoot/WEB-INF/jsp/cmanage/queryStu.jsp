@@ -168,7 +168,7 @@ function getDeleteResult()
 <table class="bordered" id="stu_table">
     
 
-    <tr>
+    <tr class="thread">
         <th>学号</th>        
         <th>姓名</th>
         <th>身份证号</th>

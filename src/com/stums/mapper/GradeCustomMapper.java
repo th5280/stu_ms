@@ -7,5 +7,5 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface GradeCustomMapper {
-	public List<GradeView> findGradeListByStu(int stu_sid);
+	public List<GradeView> findGradeViewListByStu(int stu_sid);
 }

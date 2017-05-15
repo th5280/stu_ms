@@ -1,7 +1,7 @@
 package com.stums.po;
 
 public class Grade {
-    private Integer stu_id;
+    private Integer stu_sid;
 
     private Integer course_id;
 
@@ -11,16 +11,15 @@ public class Grade {
 
     private Integer final_grade;
 
-    private Integer status;
-
     private Integer semester;
 
-	public Integer getStu_id() {
-		return stu_id;
+    
+	public Integer getStu_sid() {
+		return stu_sid;
 	}
 
-	public void setStu_id(Integer stuId) {
-		stu_id = stuId;
+	public void setStu_sid(Integer stuSid) {
+		stu_sid = stuSid;
 	}
 
 	public Integer getCourse_id() {
@@ -54,19 +53,9 @@ public class Grade {
 	public void setFinal_grade(Integer finalGrade) {
 		final_grade = finalGrade;
 	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
 	public Integer getSemester() {
 		return semester;
 	}
-
 	public void setSemester(Integer semester) {
 		this.semester = semester;
 	}

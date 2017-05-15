@@ -110,7 +110,7 @@ function createDeleteRequest(url)
 	</select>
 </div>
 	<table class="bordered" id="major_table">
-    <tr>
+    <tr class="thread">
         <th>专业编号</th>        
         <th>专业名称</th>
         <th>专业人数</th>
