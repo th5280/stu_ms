@@ -20,7 +20,7 @@ public class StudentServiceImpl implements StudentService{
 	@Autowired
 	private StudentMapper studentMapper;
 	
-	public List<StudentView> findStudentListView(StuQueryVo sqv) {
+	public List<StudentView> findStudentViewList(StuQueryVo sqv) {
 		return  studentCustomMapper.findStudentViewList(sqv);
 	}
 

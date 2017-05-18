@@ -8,4 +8,8 @@ import org.apache.ibatis.annotations.Param;
 
 public interface GradeCustomMapper {
 	public List<GradeView> findGradeViewListByStu(int stu_sid);
+	
+	public List<GradeView> findGradeViewListByCourse(int course_id);
+	
+	public void addGrade(Grade grade);
 }

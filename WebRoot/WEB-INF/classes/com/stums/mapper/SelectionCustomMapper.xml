@@ -11,4 +11,8 @@
 	<delete id="delSelectedCourse" parameterType="selection">
 		delete from selection where selection.select_course_id=#{select_course_id} and selection.select_stu_sid=#{select_stu_sid}
 	</delete>
+	
+	<select id="findStuViewListByCourse" parameterType="Integer" resultType="studentView">
+		select * from student_view where student_view.stu_sid in(SELECT selection.select_stu_sid from selection where selection.select_course_id=#{id})
+	</select>
 </mapper>

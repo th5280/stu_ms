@@ -10,9 +10,6 @@ public class Grade {
     private Integer test_grade;
 
     private Integer final_grade;
-
-    private Integer semester;
-
     
 	public Integer getStu_sid() {
 		return stu_sid;
@@ -53,12 +50,5 @@ public class Grade {
 	public void setFinal_grade(Integer finalGrade) {
 		final_grade = finalGrade;
 	}
-	public Integer getSemester() {
-		return semester;
-	}
-	public void setSemester(Integer semester) {
-		this.semester = semester;
-	}
-
     
 }

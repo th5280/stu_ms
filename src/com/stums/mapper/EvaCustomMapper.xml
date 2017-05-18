@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stums.mapper.EvaCustomMapper" >
+	<insert id="addEva" parameterType="Evaluation" >
+		insert into evaluation(eva_course_id,eva_stu_sid,eva_point) values(#{eva_course_id},#{eva_stu_sid},#{eva_point})
+	</insert>
+	
+	<select id="queryEvaResultByTea" parameterType="Integer" resultType="evaResult">
+		select floor(avg(eva_view.eva_point))  as avg_point, eva_view.course_name,eva_view.eva_course_id,eva_view.eva_id,eva_view.tea_name,eva_view.tea_tid from eva_view where eva_view.tea_tid=#{tea_tid} GROUP BY eva_view.eva_course_id 
+	</select>
+</mapper>

@@ -37,5 +37,12 @@
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp"/>
 	</bean>
-
+<!--拦截器 -->
+<mvc:interceptors>
+	<!--多个拦截器,顺序执行 -->
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="com.stums.interceptor.LoginInterceptor"></bean>
+	</mvc:interceptor>
+</mvc:interceptors>
 </beans>

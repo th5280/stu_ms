@@ -17,7 +17,6 @@ function checkItems(obj)
 	case "username":
 		if (obj.value == "") {
 			alert("用户名不能为空!");
-			
 			return false;
 		}
 		break;

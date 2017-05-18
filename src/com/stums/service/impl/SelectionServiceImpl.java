@@ -10,6 +10,7 @@ import com.stums.mapper.CourseCustomMapper;
 import com.stums.mapper.SelectionCustomMapper;
 import com.stums.po.CourseView;
 import com.stums.po.Selection;
+import com.stums.po.StudentView;
 import com.stums.service.SelectionService;
 
 @Component
@@ -19,14 +20,14 @@ public class SelectionServiceImpl implements SelectionService{
 	private CourseCustomMapper courseCustomMapper;
 	
 	@Autowired
-	private SelectionCustomMapper	selectCustomMapper;
+	private SelectionCustomMapper	selectionCustomMapper;
 	
 	public void addSelectedCourse(Selection select) {
-		selectCustomMapper.addSelectedCourse(select);
+		selectionCustomMapper.addSelectedCourse(select);
 	}
 	
 	public List<CourseView> findCourseViewListByStu(int stu_sid) {
-		List<Integer> course_id_list=selectCustomMapper.findCourseIdListByStu(stu_sid);
+		List<Integer> course_id_list=selectionCustomMapper.findCourseIdListByStu(stu_sid);
 		List<CourseView> course_list = new ArrayList();
 		for(int i=0;i<course_id_list.size();i++)
 		{
@@ -37,7 +38,11 @@ public class SelectionServiceImpl implements SelectionService{
 	}
 
 	public void quitCourse(Selection select) {
-		selectCustomMapper.delSelectedCourse(select);
+		selectionCustomMapper.delSelectedCourse(select);
+	}
+
+	public List<StudentView> findStuViewListByCourse(int courseId) {
+		return selectionCustomMapper.findStuViewListByCourse(courseId);
 	}
 
 

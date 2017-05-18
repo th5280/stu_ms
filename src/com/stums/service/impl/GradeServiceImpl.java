@@ -19,5 +19,13 @@ public class GradeServiceImpl implements GradeService{
 	public List<GradeView> findGradeViewListByStu(int stu_sid) {
 		return gradeCustomMapper.findGradeViewListByStu(stu_sid);
 	}
+
+	public List<GradeView> findGradeViewListByCourse(int course_id) {
+		return gradeCustomMapper.findGradeViewListByCourse(course_id);
+	}
+
+	public void addGrade(Grade grade) {
+		gradeCustomMapper.addGrade(grade);
+	}
 	
 }

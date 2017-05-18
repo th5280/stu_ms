@@ -15,6 +15,7 @@ var college_id;
 var major_id;
 function addTable()
 {
+	
 	var table  = document.getElementById("tea_table");
 	objarr=http_request.responseText.split(",");
 	for(i=0;i<objarr.length;i++)

@@ -122,7 +122,7 @@ public class StudentController {
 		sqv.setMajor_id(Integer.valueOf(request.getParameter("major_id").trim()));
 		sqv.setStu_class(Integer.valueOf(request.getParameter("class").trim()));
 		sqv.setStu_enter_year(Integer.valueOf(request.getParameter("enter_year").trim()));
-		List<StudentView> student_list=studentService.findStudentListView(sqv);
+		List<StudentView> student_list=studentService.findStudentViewList(sqv);
 		
 		PrintWriter out= response.getWriter();
 		String result = "";
@@ -224,6 +224,5 @@ public class StudentController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("cmanage/queryStu");
 		return modelAndView;
-		
 	}
 }

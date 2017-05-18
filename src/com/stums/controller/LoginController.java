@@ -20,7 +20,6 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,HttpServletResponse response)
 			throws Exception {
-
 		// 调用service进行用户身份验证
 		// ...
 		HttpSession session = request.getSession();
@@ -39,15 +38,12 @@ public class LoginController {
 				case 3:
 				case 4:
 					return "redirect:";
-				default:
-					
+				default:	
 			}
-			
 		}
 		// 重定向到商品列表页面
 		return "redirect:login.jsp";
 	}
-
 	// 退出
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) throws Exception {

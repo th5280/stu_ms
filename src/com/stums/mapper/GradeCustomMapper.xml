@@ -4,4 +4,12 @@
 	<select id="findGradeViewListByStu" resultType="gradeView" parameterType="Integer">
 		select * from grade_view where grade_view.stu_sid=#{id}
 	</select>
+	
+	<select id="findGradeViewListByCourse" resultType="gradeView" parameterType="Integer">
+		select * from grade_view where grade_view.course_id=#{id}
+	</select>
+	
+	<insert id="addGrade" parameterType="grade">
+		insert into grade(stu_sid,course_id,usual_grade,test_grade,final_grade) VALUES(#{stu_sid},#{course_id},#{usual_grade},#{test_grade},#{final_grade})
+	</insert>
 </mapper>

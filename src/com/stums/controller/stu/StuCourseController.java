@@ -26,8 +26,6 @@ public class StuCourseController {
 	@Resource(name="courseServiceImpl")
 	private CourseService courseService;
 	
-
-	
 	@Resource(name="selectionServiceImpl")
 	private SelectionService selectionService;
 	

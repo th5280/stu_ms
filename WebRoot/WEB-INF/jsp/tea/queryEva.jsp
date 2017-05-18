@@ -18,32 +18,26 @@
 <%@ include file="../head.jsp" %>
 <%@ include file="tea_side.jsp" %>
 <div class="query">
-<form action="inputGradeSubmit.action?course_id=${courseView.course_id}" method="post">
-<table class="bordered" id="course_table">
+<table class="bordered" id="eva_table">
     <tr class="thread">
-    	<th>学生学号</th>
-    	<th>学生姓名</th>
         <th>课程编号</th>
         <th>课程名称</th>        
-    	<th>平时成绩</th>
-    	<th>考试成绩</th>
-    	<th>总成绩</th>
+        <th>教师编号</th>
+        <th>教师名称</th>
+        <th>评分</th>
+ 
     </tr>
-<c:forEach items="${studentView_list}" var="stu_view">
+<c:forEach items="${evaResult_list}" var="eva">
   	<tr>
-  		<th><input type="text" name="stu_sid" value="${stu_view.stu_sid}" readonly="true"></th>
-   		<th>${stu_view.stu_name}</th>
-  		<th>${courseView.course_id}</th>
-  		<th>${courseView.course_name}</th>
-  		<th><input type="text" name="usual_grade"></th>
-  		<th><input type="text" name="test_grade"></th>
-  		<th><input type="text" name="final_grade"></th>
+  		<th>${eva.eva_course_id}</th>
+  		<th>${eva.course_name}</th>
+  		<th>${eva.tea_tid}</th>
+  		<th>${eva.tea_name}</th>
+  		<th>${eva.avg_point}</th>
   	</tr>
 </c:forEach>  
 
 </table>
-<input type="submit" value="提交">
-</form>
 <script>
 function select_sem(obj)
 {

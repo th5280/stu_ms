@@ -11,7 +11,7 @@ public interface StudentService {
 	 * @param sqv(query condition)
 	 * @return list of student_view record
 	 */
-	public List<StudentView> findStudentListView(StuQueryVo sqv);
+	public List<StudentView> findStudentViewList(StuQueryVo sqv);
 	
 	/**
 	 * @param Class

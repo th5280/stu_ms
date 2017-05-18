@@ -31,6 +31,7 @@ function initial_request()
 }
 function addTable()
 {
+	$("#major_table  tr:not(:first)").empty("");
 	var table  = document.getElementById("major_table");
 	objarr=http_request.responseText.split(",");
 	for(i=0;i<objarr.length;i++)

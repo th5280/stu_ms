@@ -31,8 +31,8 @@
 			</dl>
 				<dl>
 				<dt>课程管理</dt>
-				<dd>查询</dd>
-				<dd>添加</dd>
+				<dd><a href="${pageContext.request.contextPath}/course/queryCourse.action">查询</a></dd>
+				<dd><a href="${pageContext.request.contextPath}/course/addCourse.action">添加</a></dd>
 			</dl>
 			
 		</div>

@@ -125,6 +125,9 @@ function getQuitResult()
 }
 </script>
 </head>
+
+
+</script>
 <body>
 <%@ include file="head.jsp" %>
 <%@ include file="stu_side.jsp" %>
@@ -135,6 +138,8 @@ function getQuitResult()
        		 <option value=${sem}>${sem}</option>
        </c:forEach>
 </select>
+
+
 <table class="bordered" id="course_table">
     <tr class="thread">
         <th>课程编号</th>
@@ -150,20 +155,6 @@ function getQuitResult()
   
 
 </table>
-
-</script>
-<body>
-<%@ include file="head.jsp" %>
-<%@ include file="stu_side.jsp" %>
-<div class="query">
-<select  id="sem_select" name="sem_select" onchange="return select_sem(this);">
-       <option value=0>选择学期</option >
-       <c:forEach items="${sem_list}" var="sem">
-       		 <option value=${sem}>${sem}</option>
-       </c:forEach>
-</select>
-
-
 <script>
 function select_sem(obj)
 {
