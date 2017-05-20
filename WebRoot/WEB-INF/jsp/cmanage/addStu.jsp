@@ -1,20 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>      
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Responsive Bootstrap Advance Admin Template</title>
 
-<title></title>
-<link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<!-- BOOTSTRAP STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
+			rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/font-awesome.css"
+			rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+			rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+			rel="stylesheet" />
+			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
 var college_id;
 var select_id;
 function addOption(option_id)
 {
-	 alert(option_id);
+
 	objarr=http_request.responseText.split(",");
     document.getElementById(option_id).length=0; 
     for(i=0;i<objarr.length;i++)
@@ -51,9 +64,7 @@ function createRequest(url) {
 function getResult() {
     if (http_request.readyState == 4) {     		// 判断请求状态
         if (http_request.status == 200) {     		// 请求成功，开始处理返回结果
-           alert("返回成功");
-           alert(http_request.responseText);
-           addOption(select_id);
+                addOption(select_id);
         } else {     						// 请求页面有错误
             alert("您所请求的页面有错误！");
         }
@@ -63,41 +74,95 @@ function getResult() {
 </script>
 </head>
 <body>
-<%@ include file="../head.jsp" %>
-<%@ include file="../common_side.jsp" %>
-<div class="operate">
+<div id="wrapper">
+<%@ include file="common_side.jsp"%>
+			
+<div id="page-wrapper">
+<div id="page-inner">
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-head-line">
+			Grid System
+		</h1>
+		<h1 class="page-subhead-line">
+			This is dummy text , you can replace it with your original text.
+		</h1>
+	</div>
+</div>
+					
+<div class="row">
+<div class="col-md-12">
 <form action="addStuSubmit.action" method="post">
-	<div>姓&#12288;&#12288;名：<input type="text" name="name" value="${stu.stu_name}"></div><br/>
-	<div>性&#12288;&#12288;别：
-	<select type="text" name="sex" 
-	value="<c:choose><c:when test='${stu.stu_sex==1}'>男</c:when><c:otherwise>女</c:otherwise></c:choose>">
-	<option value=1>男</option>
-	<option value=2>女</option>
-	</select>
+	<div class="form-group row">
+		<div class="col-md-4">
+			&#12288;姓名：&#12288;&#12288;
+			<input type="text" name="name" value="${stu.stu_name}">
+		</div>
+		<div class="col-md-8">
+			性别：
+		<select type="text" name="sex">
+			<option value=1>男</option>								
+			<option value=2>女</option>
+		</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-md-4">
+			&#12288;身份证号：
+			<input type="text" name="stu_nid" value="${stu.stu_nid}" />
+		</div>
+		<div class="col-md-8">
+			电话：
+			<input type="text" name="tel" value="${stu.stu_tel}">
+		</div>
+	</div>
 
-	</div><br/>
-	<div>身份证号：<input type="text" name="stu_nid" value="${stu.stu_nid}"/></div>
-	<div>电&#12288;&#12288;话：<input type="text" name="tel" value="${stu.stu_tel}"></div>
-	<div>入学年份：<input type="text" id="enter_year" name="enter_year" value="${stu.stu_enter_year}"/></div>
-	<div>学&#12288;&#12288;院：
-		<select id="college_select" name="college_select" value="${stu.college_name}" onchange="return select_college(this);">
-			<option value=0> 选择学院</option >
-			<c:forEach items="${college_list}" var="college">
-       			<option value=${college.college_id}>${college.college_name}</option>
-   	 		</c:forEach>
-		</select>
+	<div class="form-group row">
+		<div class="col-md-4">								
+			&#12288;入学年份:&#12288;<input type="text" id="enter_year" name="enter_year" />
+		</div>
+		<div class="col-md-8">
+			学院：
+			<select id="college_select" name="college_select" value="${stu.college_name}" onchange="return select_college(this);">
+				<option value=0>选择学院</option>
+				<c:forEach items="${college_list}" var="college">
+					<option value=${college.college_id}>
+					${college.college_name}
+					</option>
+				</c:forEach>
+			</select>
+		</div>
 	</div>
-	<div>专&#12288;&#12288;业：
-		<select id="major_select" name="major_select" value="${stu.major_name}">
-        	<option value=0>选择专业</option>        	
-        	<c:forEach items="${major_list}" var="major">
-        	 	<option value=${major.major_id}>${major.major_name}</option>
-        	</c:forEach>
+	<div class="form-group row">
+		<div class="col-md-4">
+		&#12288;&#12288;班级：&#12288;
+		<input type="text" name="class" ">
+		</div>
+		<div class="col-md-8">
+			专业：
+		<select id="major_select" name="major_select" >
+			<option value=0>选择专业</option>
+			<c:forEach items="${major_list}" var="major">
+				<option value=${major.major_id}>${major.major_name}</option>
+			</c:forEach>
 		</select>
+		</div>
 	</div>
-	<div>班&#12288;&#12288;级：<input type="text" name="class" value="${stu.stu_class}"></div>
-	<div><input type="submit" value="提交" width="300px" class="button"  ></div>
-</form>		
+	<div class="form-group row">
+	<div class="col-md-2"></div>
+	<div class="col-md-4">
+		<input type="submit" value="提交"/>
+	</div>
+	</div>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+	
+</div>
+	
 </div>
 <script>
 function select_college(obj)
@@ -111,5 +176,8 @@ function select_college(obj)
 	}
 }
 </script>
+	
+
+
 </body>
 </html>

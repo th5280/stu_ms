@@ -4,10 +4,12 @@
 <head>
 <title>queryStu</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
+<script type="text/javascript"  src="/stu_ms/js/jquery-1.4.4.min.js"></script>
+
 </head>
 <body>
-<%@ include file="head.jsp" %>
-<%@ include file="common_side.jsp" %>
+<%@ include file="../head.jsp" %>
+<%@ include file="../common_side.jsp" %>
 <div class="query_stu">
 <select >
         <option> 选择学院</option>

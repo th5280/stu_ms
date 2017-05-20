@@ -116,7 +116,7 @@ public class TeaCourseController {
 		User user = (User)(session.getAttribute("user"));
 		
 		ModelAndView modelAndView = new ModelAndView();
-		List<EvaResult> list =  evaService.queryEvaResultByTea(user.getUser_id());
+		List<EvaResult> list =  evaService.findEvaResultListByTea(user.getUser_id());
 		modelAndView.addObject("evaResult_list", list);
 		modelAndView.setViewName("tea/queryEva");
 		return modelAndView;

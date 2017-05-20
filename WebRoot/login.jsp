@@ -13,7 +13,7 @@
 		create_verycode();
 	}
 </script>
-<body>
+<body background="${pageContext.request.contextPath}/image/bg1.jpg">
   <section class="container">
     <div class="login">
       <h1>系统登录</h1>

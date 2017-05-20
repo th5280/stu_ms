@@ -8,4 +8,6 @@ public interface EvaCustomMapper {
 	public void addEva(Evaluation eva);
 
 	public List<EvaResult> queryEvaResultByTea(int tea_tid);
+
+	public List<CourseView> findUnEvaCourseViewList(int stu_sid);
 }

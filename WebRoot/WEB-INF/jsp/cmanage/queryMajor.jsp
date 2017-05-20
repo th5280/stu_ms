@@ -1,11 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title></title>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Responsive Bootstrap Advance Admin Template</title>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+		<script type="text/javascript" src="/stu_ms/js/manage_function.js"></script>
+		<script type="text/javascript" src="/stu_ms/js/jquery-1.4.4.min.js"></script>
+		<link href="css/base.css" rel="stylesheet" type="text/css">
+
+		<!-- BOOTSTRAP STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
+			rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/font-awesome.css"
+			rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+			rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+			rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/css/base.css"
+			rel="stylesheet" type="text/css">
+
 <script type="text/javascript">
 var college_id;
 var select_id;
@@ -33,7 +56,9 @@ function addTable()
 {
 	$("#major_table  tr:not(:first)").empty("");
 	var table  = document.getElementById("major_table");
+	
 	objarr=http_request.responseText.split(",");
+	
 	for(i=0;i<objarr.length;i++)
     {
         arr=objarr[i].split("#");
@@ -98,27 +123,55 @@ function createDeleteRequest(url)
 }
 </script>
 </head>
-<body>
-<%@ include file="../head.jsp" %>
-<%@ include file="../common_side.jsp" %>
-<div class="query">
+	<body>
+
+<div id="wrapper">
+
+			<!-- /. NAV TOP  -->
+<%@include file="common_side.jsp"%>
+			<!-- /. NAV SIDE  -->
+<div id="page-wrapper">
+<div class="row">
+<div class="col-md-12">
+<h1 class="page-head-line">INVOICE</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
 <div>
-	<select id="college_select" name="college_select"  onchange="return select_college(this);">
+<div class="query">
+<select id="college_select" name="college_select"  onchange="return select_college(this);">
 		<option value=0> 选择学院</option >
 		<c:forEach items="${college_list}" var="college">
        		<option value=${college.college_id}>${college.college_name}</option>
    	 	</c:forEach>
 	</select>
 </div>
-	<table class="bordered" id="major_table">
-    <tr class="thread">
-        <th>专业编号</th>        
-        <th>专业名称</th>
-        <th>专业人数</th>
-        <th>系主任</th>
-        <th>操作</th>
-    </tr>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="table-responsive">
+<table id="major_table" class="table table-striped table-bordered table-hover">
+<thead>
+<tr class="thread">
+      <th>专业编号</th>        
+      <th>专业名称</th>
+      <th>专业人数</th>
+      <th>系主任</th>
+      <th>操作</th>
+</tr>
+
+</thead>										
 </table>
+</div>
+<hr /></div>
+</div>
+
+</div>
+<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="assets/js/custom.js"></script>
+
 <script type="text/javascript">
 function select_college(obj)
 {
@@ -137,7 +190,5 @@ function delete_remind(major_id)
 	}	
 }
 </script>
-	
-</div>
-</body>
+	</body>
 </html>

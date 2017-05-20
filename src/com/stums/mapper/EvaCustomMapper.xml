@@ -8,4 +8,9 @@
 	<select id="queryEvaResultByTea" parameterType="Integer" resultType="evaResult">
 		select floor(avg(eva_view.eva_point))  as avg_point, eva_view.course_name,eva_view.eva_course_id,eva_view.eva_id,eva_view.tea_name,eva_view.tea_tid from eva_view where eva_view.tea_tid=#{tea_tid} GROUP BY eva_view.eva_course_id 
 	</select>
+	
+	<select id="findUnEvaCourseViewList" parameterType="Integer" resultType="courseView">
+		select course_view.* from course_view where course_view.course_id not in (select evaluation.eva_course_id from evaluation where evaluation.eva_stu_sid=#{stu_sid}) and course_view.course_id  in 
+(select selection.select_course_id from selection where selection.select_stu_sid=#{stu_sid})
+	</select>
 </mapper>

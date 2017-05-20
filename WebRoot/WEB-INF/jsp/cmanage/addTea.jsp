@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
-
-<title></title>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Responsive Bootstrap Advance Admin Template</title>
+	<!-- BOOTSTRAP STYLES-->
+	<link href="${pageContext.request.contextPath}/assets/css/bootstrap.css" rel="stylesheet" />
+	<!-- FONTAWESOME STYLES-->
+	<link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+	<!--CUSTOM BASIC STYLES-->
+	<link href="${pageContext.request.contextPath}/assets/css/basic.css" rel="stylesheet" />
+	<!--CUSTOM MAIN STYLES-->
+	<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript">
 var select_id;
 var college_id;
@@ -64,30 +73,91 @@ function createRequest(url) {
 </script>
 </head>
 <body>
-<%@ include file="../head.jsp" %>
-<%@ include file="../common_side.jsp" %>
-<div class="operate">
-<form action="addTeaSubmit.action" method="post" style="width:80%;float:left">
-	<div>姓&#12288;&#12288;名：<input type="text" name="name" value="${tea.tea_name}"></div>
-	<div>性&#12288;&#12288;别：
-	<select type="text" name="sex" >
-	<option value=1 >男</option>
-	<option value=2 >女</option>
-	</select>	
-	</div><br/>
-	<div>身份证号：<input type="text" name="tea_nid" /></div>
-	<div>电&#12288;&#12288;话：<input type="text" name="tel" ></div><br/>
-	<div>职&#12288;&#12288;称：<input type="text" id="title" name="title" /></div><br/>
-	<div>学&#12288;&#12288;院：<select id="college_select" name="college_select" value="${stu.college_name}" onchange="return select_college(this);" style="height:30px;font-size:15px;">
+<div id="wrapper">
+<%@ include file="common_side.jsp"%>
+			
+<div id="page-wrapper">
+<div id="page-inner">
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-head-line">
+			Grid System
+		</h1>
+		<h1 class="page-subhead-line">
+			This is dummy text , you can replace it with your original text.
+		</h1>
+	</div>
+</div>
+					
+<div class="row">
+<div class="col-md-12">
+<form action="addTeaSubmit.action" method="post">
+	<div class="form-group row">
+		<div class="col-md-4">
+			&#12288;姓名：&#12288;&#12288;
+			<input type="text" name="name" >
+		</div>
+		<div class="col-md-8">
+			性别：
+		<select type="text" name="sex" >
+			<option value=1 >男</option>
+			<option value=2 >女</option>
+		</select>	
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-md-4">
+			&#12288;身份证号：
+			<input type="text" name="tea_nid" />
+		</div>
+		<div class="col-md-8">
+			电话：
+			<input type="text" name="tel" >
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-md-4">								
+			&#12288;教职工号:&#12288;<input type="text" name="tea_tid"   readonly="true"/>
+		</div>
+		<div class="col-md-8">
+			学院：
+			<select id="college_select" name="college_select" value="${stu.college_name}" onchange="return select_college(this);" style="height:30px;font-size:15px;">
 			<option value=0> 选择学院</option >
 			<c:forEach items="${college_list}" var="college">
        			<option value=${college.college_id}>${college.college_name}</option>
    	 		</c:forEach>
 		</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-md-4">
+		&#12288;&#12288;职称：&#12288;
+		<input type="text" id="title" name="title"/>
+		</div>
+		<div class="col-md-8">
+			专业：
+		<select id="major_select" name="major_select" style="height:30px;font-size:15px;">
+			        <option value=0>选择专业</option>
+		</select>
+		</div>
 	</div><br/>
-	<div>专&#12288;&#12288;业：<select id="major_select" name="major_select" style="height:30px;font-size:15px;"/></div>
-	<div><input type="submit" value="提交" width="300px" class="button"  ></div>
-</form>		
+	
+	<div class="form-group row">
+	
+	<div class="col-md-4">
+	<input type="submit" value="提交"/>
+	</div>
+	</div>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+	
+</div>
+	
 </div>
 <script type="text/javascript">
 function select_college(obj)

@@ -34,9 +34,8 @@ public class StuEvaController {
 		ModelAndView modelAndView = new ModelAndView();
 		HttpSession session=request.getSession();
 		User user = (User)session.getAttribute("user");
-		
-		List<CourseView> courseView_list=selectionService.findCourseViewListByStu(user.getUser_id());
 		List<String> sem_list = new ArrayList();
+		List<CourseView> courseView_list = evaService.findUnEvaCourseViewList(user.getUser_id());
 		modelAndView.addObject("courseView_list",courseView_list);
 		modelAndView.setViewName("stu/evaCourse");
 		return modelAndView;
@@ -57,7 +56,7 @@ public class StuEvaController {
 			evaService.addEva(eva);
 		}
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:queryCourse.action");
+		modelAndView.setViewName("redirect:/stu_course/querySelectingCourse.action");
 		return modelAndView;
 	}
 }

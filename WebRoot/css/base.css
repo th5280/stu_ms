@@ -58,7 +58,7 @@ table {
 
 	border-spacing: 0;
 	width: 80%;
-	margin-left: 50px;
+	margin-left: 0px;
 }
 
 .bordered tr:hover {
@@ -75,12 +75,15 @@ table {
 }
 
 .thread{
-	background-color: #dce9f9;
+	background-color: #02DF82;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
 	border-top: none;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+	text-align:center;  
 }
-
+.thread th{
+	text-align:center;  
+}
 /*下拉框*/
 .query select {
 	width: 185pt;

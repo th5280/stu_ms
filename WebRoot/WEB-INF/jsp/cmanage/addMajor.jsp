@@ -1,12 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Responsive Bootstrap Advance Admin Template</title>
 
-<title></title>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
+		<!-- BOOTSTRAP STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
+			rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/font-awesome.css"
+			rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+			rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+			rel="stylesheet" />
+			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
 var select_id;
 
@@ -63,29 +78,72 @@ function getResult() {
 </script>
 </head>
 <body>
-<%@ include file="../head.jsp" %>
-<%@ include file="../common_side.jsp" %>
-<div class="operate">
-<form action="addMajorSubmit.action" class="operate" method="post">
-<div>专业名称：<input type="text" name="major_name" ></div>
-<div>学&#12288;&#12288;院：
+<div id="wrapper">
+<%@ include file="common_side.jsp"%>
+			
+<div id="page-wrapper">
+<div id="page-inner">
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-head-line">
+			Grid System
+		</h1>
+		<h1 class="page-subhead-line">
+			This is dummy text , you can replace it with your original text.
+		</h1>
+	</div>
+</div>
+					
+<div class="row">
+<div class="col-md-12">
+<form action="addMajorSubmit.action" method="post">
+	<div class="form-group row">
+		<div class="col-md-4">
+			专业编号：
+			<input type="text" name="major_id"   readonly="true"/>
+		</div>
+		<div class="col-md-8">
+			学&#12288;&#12288;院：
 	<select id="college_select" name="college_select" onchange="return select_college(this);" style="height:30px;font-size:15px;">
 		<option value=0> 选择学院</option >
 		<c:forEach items="${college_list}" var="college">
        		<option value=${college.college_id}>${college.college_name}</option>
    	 	</c:forEach>
 	</select>
-</div>
-<div>系主任名：
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-md-4">
+			专业名称：
+			<input type="text" name="major_name" >
+		</div>
+		<div class="col-md-8">
+			系主任名：
 	<select id="major_head_select" name="major_head_select" style="height:30px;font-size:15px;">
 	<option>选择教师</option>	
 	<c:forEach items="${tea_list}" var="tea">
 		<option value=${tea.tea_tid} selected="selected">${tea.tea_name}</option>	   
 	</c:forEach>
 	</select>
+		</div>
 	</div>
-<div><input type="submit" value="添加" width="300px" class="button"  ></div>
-</form>		
+
+
+	<div class="form-group row">
+	<div class="col-md-2"></div>
+	<div class="col-md-4">
+		<input type="submit" value="提交"/>
+	</div>
+	</div>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+	
+</div>
+	
 </div>
 <script>
 function select_college(obj)
@@ -101,5 +159,9 @@ function select_college(obj)
 
 }
 </script>
+</script>
+	
+
+
 </body>
 </html>

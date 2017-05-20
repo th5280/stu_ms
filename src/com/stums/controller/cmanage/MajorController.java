@@ -59,6 +59,8 @@ public class MajorController {
 		}
 		result=result.substring(0, result.length()-1);
 		out.print(result);
+		System.out.println(result);
+
 	}
 	
 	
@@ -89,7 +91,6 @@ public class MajorController {
 	public void getTeaList(HttpServletRequest request,HttpServletResponse response) throws IOException
 	{
 		int college_id = Integer.valueOf(request.getParameter("college_id"));
-		System.out.println("college_id="+college_id);
 		List<Teacher> list = teacherService.findTeacherListByCollege(college_id);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out= response.getWriter();

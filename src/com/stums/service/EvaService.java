@@ -7,6 +7,8 @@ import com.stums.po.*;
 public interface EvaService {
 	public void addEva(Evaluation eva);
 	
-	public List<EvaResult> queryEvaResultByTea(int tea_tid);
- 
+	public List<EvaResult> findEvaResultListByTea(int tea_tid);
+		
+	public List<CourseView> findUnEvaCourseViewList(int stu_sid);
+
 }

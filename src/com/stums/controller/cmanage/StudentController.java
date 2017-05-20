@@ -40,6 +40,13 @@ public class StudentController {
 	//@Autowired
 	//private StudentCustomMapper studentCustomMapper;
 	
+	@RequestMapping("/cmanage")
+	public ModelAndView cmanage()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("cmanage/cmanage");	
+		return modelAndView;
+	}
 	
 	@RequestMapping("/queryStu")
 	public ModelAndView queryStu(HttpServletRequest request)
@@ -51,6 +58,7 @@ public class StudentController {
 		return modelAndView;
 		
 	}
+	
 	
 
 	@RequestMapping("/getMajorList")
@@ -181,8 +189,7 @@ public class StudentController {
 		stu.setStu_class(Integer.valueOf(request.getParameter("class").trim()));
 		stu.setStu_college_id(Integer.valueOf(request.getParameter("college_select")));
 		studentService.editStu(stu);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("cmanage/queryStu");
+		ModelAndView modelAndView = new ModelAndView("redirect:queryStu.action");
 		return modelAndView;
 	}
 	
@@ -221,8 +228,7 @@ public class StudentController {
 		stu.setStu_class(Integer.valueOf(request.getParameter("class").trim()));
 		stu.setStu_college_id(Integer.valueOf(request.getParameter("college_select")));
 		studentService.addStu(stu);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("cmanage/queryStu");
+		ModelAndView modelAndView = new ModelAndView("redirect:queryStu.action");
 		return modelAndView;
 	}
 }

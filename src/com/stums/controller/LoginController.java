@@ -32,12 +32,14 @@ public class LoginController {
 		{
 			switch(user.getType())
 			{
-				case 1:
-					return "redirect:stu/queryStu.action";
-				case 2:
-				case 3:
 				case 4:
-					return "redirect:";
+					return "redirect:stu_course/querySelectedCourse.action";
+				case 3:
+					return "redirect:tea/queryCourse.action";
+				case 2:
+					return "redirect:stu/cmanage.action";
+				case 1:
+					return "redirect:stu/";
 				default:	
 			}
 		}
@@ -46,13 +48,14 @@ public class LoginController {
 	}
 	// 退出
 	@RequestMapping("/logout")
-	public String logout(HttpSession session) throws Exception {
+	public String logout(HttpServletRequest request,HttpServletResponse response) throws Exception {
 
 		// 清除session
-		session.invalidate();
+		request.getSession().invalidate();
 
 		// 重定向到商品列表页面
-		return "redirect:/items/queryItems.action";
+		
+		return "redirect:course/queryCourse.action";
 	}
 
 

@@ -64,7 +64,10 @@ public class CourseController {
 			result+=m.getMajor_id()+"#";
 			result+=m.getMajor_name()+",";	
 		}
-		result=result.substring(0, result.length()-1);
+		if(result!="")
+		{
+			result=result.substring(0, result.length()-1);
+		}
 		out.print(result);
 	}
 	

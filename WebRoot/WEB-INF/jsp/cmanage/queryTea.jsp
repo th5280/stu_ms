@@ -1,21 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
-<head>
-<title>queryStu</title>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Responsive Bootstrap Advance Admin Template</title>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<script type="text/javascript"  src="/stu_ms/js/manage_function.js"></script>
-<script type="text/javascript"  src="/stu_ms/js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="/stu_ms/js/manage_function.js"></script>
+		<script type="text/javascript" src="/stu_ms/js/jquery-1.4.4.min.js"></script>
+		<link href="css/base.css" rel="stylesheet" type="text/css">
 
-<link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
+		<!-- BOOTSTRAP STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
+			rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link
+			href="${pageContext.request.contextPath}/assets/css/font-awesome.css"
+			rel="stylesheet" />
+		<!--CUSTOM BASIC STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+			rel="stylesheet" />
+		<!--CUSTOM MAIN STYLES-->
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+			rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/css/base.css"
+			rel="stylesheet" type="text/css">
+
 <script type="text/javascript">
 var select_id;
 var college_id;
 var major_id;
 function addTable()
 {
-	
+	$("#tea_table  tr:not(:first)").empty("");
 	var table  = document.getElementById("tea_table");
 	objarr=http_request.responseText.split(",");
 	for(i=0;i<objarr.length;i++)
@@ -134,12 +154,19 @@ function getDeleteResult()
 </script>
 
 </head>
-
 <body>
-<%@ include file="../head.jsp" %>
-<%@ include file="../common_side.jsp" %>
 
-
+<div id="wrapper">
+<%@include file="common_side.jsp"%>
+<div id="page-wrapper">
+<div class="row">
+<div class="col-md-12">
+<h1 class="page-head-line">INVOICE</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div>
 <div class="query">
 <select  id="college_select" name="myselect" onchange="return select_college(this);">
       <option value=0> 选择学院</option >
@@ -150,10 +177,14 @@ function getDeleteResult()
 <select id="major_select" onchange="return select_major(this)">
         <option value=0>选择专业</option>
 </select>
-
 </div>
-<table class="bordered" id="tea_table">
-    <tr class="thread">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="table-responsive">
+<table id="tea_table" class="table table-striped table-bordered table-hover">
+
+<thead>
+<tr class="thread">
         <th>教职工号</th>        
         <th>姓名</th>
         <th>身份证号</th>
@@ -164,9 +195,31 @@ function getDeleteResult()
         <th>电话</th>
         <th>操作</th>
     </tr>
-</table>
+</thead>
+<tbody>
 
-<br><br>
+</tbody>
+</table>
+</div>
+<hr />
+
+
+
+</div>
+</div>
+
+</div>
+
+<!-- /. FOOTER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="assets/js/bootstrap.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="assets/js/custom.js"></script>
 
 <script>
 function select_college(obj)
@@ -197,5 +250,5 @@ function delete_remind(tea_id)
 	}	
 }
 </script>
-</body>
+	</body>
 </html>
