@@ -23,7 +23,7 @@ import com.stums.service.GradeService;
 import com.stums.service.SelectionService;
 import com.stums.service.StudentService;
 
-@RequestMapping("/tea")
+@RequestMapping("/tea_course")
 @Controller
 public class TeaCourseController {
 	

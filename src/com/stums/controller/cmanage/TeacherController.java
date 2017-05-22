@@ -81,7 +81,9 @@ public class TeacherController {
 			result+=tea.getMajor_name()+"#";
 			result+=tea.getTea_title()+"#";
 			result+=tea.getTea_tel()+"#";
-			result+="<a href="+request.getContextPath()+"/tea/editTea.action?tea_tid="+tea.getTea_tid()+">修改</a>/<a href='javaScript:delete_remind("+tea.getTea_tid()+")'>删除,";
+			result+="<a href="+request.getContextPath()+"/tea/editTea.action?tea_tid="+tea.getTea_tid()+">修改</a>/<a href='javaScript:delete_remind("+tea.getTea_tid()+")'>删除#";
+			result+="<a href="+request.getContextPath()+"/schoolUser/editUser.action?user_id="+tea.getTea_tid()+">修改密码</a>,";
+
 		}
 		result=result.substring(0, result.length()-1);
 		out.print(result);

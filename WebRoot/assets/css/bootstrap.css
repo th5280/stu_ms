@@ -186,6 +186,7 @@ table {
 td,
 th {
   padding: 0;
+
 }
 @media print {
   * {
@@ -2084,6 +2085,9 @@ th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
 }
+th{
+	text-align:center;
+}
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -2120,6 +2124,9 @@ th {
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
+}
+td {
+    text-align: center;
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {

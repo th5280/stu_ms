@@ -71,7 +71,7 @@ table {
 	border-top: 1px solid #ccc;
 	border-bottom:1px solid #ccc;
 	padding: 10px;
-	text-align: left;
+	
 }
 
 .thread{
@@ -82,8 +82,10 @@ table {
 	text-align:center;  
 }
 .thread th{
-	text-align:center;  
+	text-align:center; 
+	
 }
+
 /*下拉框*/
 .query select {
 	width: 185pt;

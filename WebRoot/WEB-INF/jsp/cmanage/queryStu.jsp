@@ -240,9 +240,8 @@ function getDeleteResult()
 													<th>
 														电话
 													</th>
-													<th>
-														操作
-													</th>
+													<th>操作</th>
+													<th>管理</th>
 												</tr>
 											</thead>
 											

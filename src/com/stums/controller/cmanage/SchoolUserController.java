@@ -1,4 +1,4 @@
-package com.stums.controller.smanage;
+package com.stums.controller.cmanage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,71 +15,68 @@ import org.springframework.web.servlet.ModelAndView;
 import com.stums.po.User;
 import com.stums.service.UserService;
 
-@RequestMapping("/smanage")
+
 @Controller
-public class UserController {
+@RequestMapping("/schoolUser")
+public class SchoolUserController {
 	
 	@Resource(name="userServiceSuperImpl")
 	private UserService userService;
 
-	@RequestMapping("/queryUser")
-	public ModelAndView queryUser(HttpServletRequest request,HttpServletResponse response)
-	{
-		ModelAndView modelAndView = new ModelAndView();	
-		List<User> coma_list= userService.findUserListByType(2);
-		modelAndView.addObject("coma_list",coma_list);
-		modelAndView.setViewName("smanage/queryCoMaUser");
-		return modelAndView;
-	}
 	
-	@RequestMapping("/deleteUser")
-	public void deleteStu(HttpServletRequest request,HttpServletResponse response) throws IOException
-	{
-		Integer user_id = Integer.valueOf(request.getParameter("user_id"));
-		userService.deleteUser(user_id);
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.print(user_id);
-	}
 	
-	@RequestMapping("/editCoMaUserSubmit")
+	@RequestMapping("/editUserSubmit")
 	public ModelAndView editCoMaUserSubmit(HttpServletRequest request,HttpServletResponse response)
 	{
+		System.out.println("提交修改");
 		User user = new User();
-		user.setType(2);
+		user.setType(Integer.valueOf(request.getParameter("type")));
 		user.setUser_id(Integer.valueOf(request.getParameter("user_id")));
 		user.setPassword(request.getParameter("password").trim());
 		userService.editUser(user);
-		ModelAndView modelAndView = new ModelAndView("redirect:queryCoMaUser.action");
+		ModelAndView modelAndView = new ModelAndView();
+		if(user.getType()==4)
+		{
+			modelAndView.setViewName("redirect:/stu/queryStu.action");
+		}
+		else if(user.getType()==3)
+		{
+			modelAndView.setViewName("redirect:/tea/queryTea.action");
+		}
+		else
+		{
+			modelAndView.setViewName("redirect:/tea/queryTea.action");
+		}
 		return modelAndView;
 	}
 	
-	@RequestMapping("/editCoMaUser")
+	@RequestMapping("/editUser")
 	public ModelAndView editCoMaUser(HttpServletRequest request,HttpServletResponse response)
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		User user = userService.findUserById(Integer.valueOf(request.getParameter("user_id")));
 		modelAndView.addObject("user", user);
-		modelAndView.setViewName("smanage/editCoMaUser");
+		modelAndView.setViewName("cmanage/editUser");
 		return modelAndView;
+		
 	}
 	
-	@RequestMapping("/addCoMaUserSubmit")
+	@RequestMapping("/addUserSubmit")
 	public ModelAndView addCoMaUser(HttpServletRequest request,HttpServletResponse response)
 	{
 		User user = new User();
-		user.setType(2);
+		user.setType(Integer.valueOf(request.getParameter("select_type")));
 		user.setUser_id(Integer.valueOf(request.getParameter("user_id")));
 		user.setPassword(request.getParameter("password").trim());
 		userService.addUser(user);
 		ModelAndView modelAndView = new ModelAndView("redirect:queryUser.action");
 		return modelAndView;
 	}
-	@RequestMapping("/addCoMaUser")
+	@RequestMapping("/addUser")
 	public ModelAndView addUser(HttpServletRequest request,HttpServletResponse response)
 	{
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("smanage/addCoMaUser");
+		modelAndView.setViewName("cmanage/addUser");
 		return modelAndView;
 
 	}

@@ -79,10 +79,10 @@
                         <a href="#"><i class="fa fa-desktop "></i>课程管理<span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="${pageContext.request.contextPath}/tea/queryCourse.action"><i class="fa fa-toggle-on"></i>查询课程</a>
+                                <a href="${pageContext.request.contextPath}/tea_course/queryCourse.action"><i class="fa fa-toggle-on"></i>查询课程</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/tea/queryEva.action"><i class="fa fa-bell "></i>查看评课</a>
+                                <a href="${pageContext.request.contextPath}/tea_course/queryEva.action"><i class="fa fa-bell "></i>查看评课</a>
                             </li>
                        
                            

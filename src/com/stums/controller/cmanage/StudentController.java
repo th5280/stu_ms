@@ -145,7 +145,8 @@ public class StudentController {
 			result+=stu_view.getMajor_name()+"#";
 			result+=stu_view.getStu_class()+"#";
 			result+=stu_view.getStu_tel()+"#";
-			result+="<a href="+request.getContextPath()+"/stu/editStu.action?stu_sid="+stu_view.getStu_sid()+">修改</a>/<a href='javaScript:delete_remind("+stu_view.getStu_sid()+")'>删除,";
+			result+="<a href="+request.getContextPath()+"/stu/editStu.action?stu_sid="+stu_view.getStu_sid()+">修改</a>/<a href='javaScript:delete_remind("+stu_view.getStu_sid()+")'>删除</a>#";
+			result+="<a href="+request.getContextPath()+"/schoolUser/editUser.action?type=4&user_id="+stu_view.getStu_sid()+">修改密码</a>,";
 			
 		}
 		result=result.substring(0, result.length()-1);

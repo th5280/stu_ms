@@ -44,5 +44,27 @@
 		<mvc:mapping path="/**"/>
 		<bean class="com.stums.interceptor.LoginInterceptor"></bean>
 	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/stu/**"/>
+		<mvc:mapping path="/course/**"/>
+		<mvc:mapping path="/tea/**"/>
+		<mvc:mapping path="/major/**"/>
+		<mvc:mapping path="/schoolUser/**"/>
+		<bean class="com.stums.interceptor.ComInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/tea_course/**"/>
+		<bean class="com.stums.interceptor.TeaInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/stu_course/**"/>
+		<mvc:mapping path="/stu_eva/**"/>	
+		<mvc:mapping path="/stu_grade/**"/>
+		<bean class="com.stums.interceptor.StuInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/smanage/**"/>
+		<bean class="com.stums.interceptor.SuperInterceptor"></bean>
+	</mvc:interceptor>
 </mvc:interceptors>
 </beans>
