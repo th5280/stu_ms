@@ -229,7 +229,8 @@ public class StudentController {
 		stu.setStu_class(Integer.valueOf(request.getParameter("class").trim()));
 		stu.setStu_college_id(Integer.valueOf(request.getParameter("college_select")));
 		studentService.addStu(stu);
-		ModelAndView modelAndView = new ModelAndView("redirect:queryStu.action");
+		String password = request.getParameter("password");
+		ModelAndView modelAndView = new ModelAndView("redirect:/schoolUser/addUserSubmit.action?select_type=4&user_id="+stu.getStu_sid()+"&password="+password);
 		return modelAndView;
 	}
 }

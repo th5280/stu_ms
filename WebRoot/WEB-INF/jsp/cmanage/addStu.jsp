@@ -21,7 +21,9 @@
 		<!--CUSTOM MAIN STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
-			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
 var college_id;
 var select_id;
@@ -82,17 +84,17 @@ function getResult() {
 <div class="row">
 	<div class="col-md-12">
 		<h1 class="page-head-line">
-			Grid System
+			添加学生
 		</h1>
 		<h1 class="page-subhead-line">
-			This is dummy text , you can replace it with your original text.
+			请注意格式
 		</h1>
 	</div>
 </div>
 					
 <div class="row">
 <div class="col-md-12">
-<form action="addStuSubmit.action" method="post">
+<form action="addStuSubmit.action" method="post" onsubmit="return checkStuForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			&#12288;姓名：&#12288;&#12288;
@@ -136,7 +138,7 @@ function getResult() {
 	<div class="form-group row">
 		<div class="col-md-4">
 		&#12288;&#12288;班级：&#12288;
-		<input type="text" name="class" ">
+		<input type="text" name="class" >
 		</div>
 		<div class="col-md-8">
 			专业：
@@ -147,6 +149,13 @@ function getResult() {
 			</c:forEach>
 		</select>
 		</div>
+	</div>
+	<div class="form-group row">
+	<div class="col-md-4">
+		&#12288;&#12288;&nbsp;密码:&#12288;<input name="password" type="text" id="password"/>
+	</div>
+	<div class="col-md-4">
+	</div>
 	</div>
 	<div class="form-group row">
 	<div class="col-md-2"></div>

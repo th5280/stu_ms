@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,7 +20,9 @@
 		<!--CUSTOM MAIN STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
-			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
 var college_id;
 var select_id;
@@ -60,7 +61,6 @@ function createRequest(url) {
 	
     http_request.send(null);									   //向服务器发送请求
 }
-
 function getResult() {
     if (http_request.readyState == 4) {     		// 判断请求状态
         if (http_request.status == 200) {     		// 请求成功，开始处理返回结果
@@ -70,7 +70,6 @@ function getResult() {
         }
     }
 }
-
 </script>
 </head>
 <body>
@@ -92,7 +91,7 @@ function getResult() {
 					
 <div class="row">
 <div class="col-md-12">
-<form action="editMajorSubmit.action" method="post">
+<form action="editMajorSubmit.action" method="post" onsubmit="return checkMajorForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			专业编号：

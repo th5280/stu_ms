@@ -21,7 +21,9 @@
 		<!--CUSTOM MAIN STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
-			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		
 <script type="text/javascript">
 var select_id;
 
@@ -96,11 +98,11 @@ function getResult() {
 					
 <div class="row">
 <div class="col-md-12">
-<form action="addMajorSubmit.action" method="post">
+<form action="addMajorSubmit.action" method="post" onsubmit="return checkMajorForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
-			专业编号：
-			<input type="text" name="major_id"   readonly="true"/>
+			专业名称：
+			<input type="text" name="major_name" >
 		</div>
 		<div class="col-md-8">
 			学&#12288;&#12288;院：
@@ -114,17 +116,16 @@ function getResult() {
 	</div>
 	<div class="form-group row">
 		<div class="col-md-4">
-			专业名称：
-			<input type="text" name="major_name" >
-		</div>
-		<div class="col-md-8">
 			系主任名：
 	<select id="major_head_select" name="major_head_select" style="height:30px;font-size:15px;">
-	<option>选择教师</option>	
+	<option value=0>选择教师</option>	
 	<c:forEach items="${tea_list}" var="tea">
 		<option value=${tea.tea_tid} selected="selected">${tea.tea_name}</option>	   
 	</c:forEach>
 	</select>
+		</div>
+		<div class="col-md-8">
+			
 		</div>
 	</div>
 

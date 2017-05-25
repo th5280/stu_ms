@@ -122,8 +122,8 @@ public class TeacherController {
 		tea.setTea_tid(Integer.valueOf(request.getParameter("tea_tid").trim()));
 		tea.setTea_title(request.getParameter("title"));
 		teacherService.editTea(tea);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("cmanage/queryTea");
+		ModelAndView modelAndView = new ModelAndView("redirect:queryTea.action");
+		
 		return modelAndView;
 	}
 	
@@ -162,7 +162,8 @@ public class TeacherController {
 		tea.setTea_tel(request.getParameter("tel"));
 		tea.setTea_title(request.getParameter("title"));
 		teacherService.addTea(tea);
-		ModelAndView modelAndView = new ModelAndView();
+		String password = request.getParameter("password");
+		ModelAndView modelAndView = new ModelAndView("redirect:/schoolUser/addUserSubmit.action?select_type=3&user_id="+tea.getTea_tid()+"&password="+password);
 		return modelAndView;
 	}
 	

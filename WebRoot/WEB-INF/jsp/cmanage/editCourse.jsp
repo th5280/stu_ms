@@ -12,16 +12,17 @@
 			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
 			rel="stylesheet" />
 		<!-- FONTAWESOME STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
 		<!--CUSTOM BASIC STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
 			rel="stylesheet" />
 		<!--CUSTOM MAIN STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		
 <script type="text/javascript">
 
 var select_id;
@@ -148,21 +149,21 @@ function getDeleteResult()
 <div class="row">
 	<div class="col-md-12">
 		<h1 class="page-head-line">
-			Grid System
+			修改课程
 		</h1>
 		<h1 class="page-subhead-line">
-			This is dummy text , you can replace it with your original text.
+			课程时间格式（例）：第四学期1~16周周七3~4节
 		</h1>
 	</div>
 </div>
 					
 <div class="row">
 <div class="col-md-12">
-<form action="editCourseSubmit.action" method="post">
+<form action="editCourseSubmit.action" method="post" onsubmit="return checkCourseForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			&#12288;课程编号：
-			<input type="text" name="course_id" value="${course_view.course_id}"/>
+			<input type="text" name="course_id" value="${course_view.course_id}" readonly="true"/>
 		</div>
 		<div class="col-md-8">
 			课程名称：<input type="text" name="course_name" value="${course_view.course_name }"/>
@@ -175,7 +176,6 @@ function getDeleteResult()
 		<div class="col-md-8">
 			学&#12288;院：&ensp;
 		<select id="college_select" name="college_select"  onchange="return select_college(this);" >
-			<option value=0> 选择学院</option >
 			<c:forEach items="${college_list}" var="college">
 			<c:choose>
         	<c:when  test="${college.college_id==course_view.major_college_id}">
@@ -194,7 +194,6 @@ function getDeleteResult()
 		<div class="col-md-4">								
 			&#12288;专&#12288;&#12288;业：
 		<select id="major_select" name="major_select" onchange="return select_major(this);">
-        	<option value=0>选择专业</option>   
         	<c:forEach items="${major_list}" var="major">
         		<c:choose>
         			<c:when  test="${major.major_id==course_view.course_major_id}">
@@ -210,7 +209,6 @@ function getDeleteResult()
 		<div class="col-md-8">
 			教&#12288;&#12288;师：
 	<select id="tea_select" name="tea_select" onchange="return select_tea(this)">
-		<option value=0>选择教师</option>
 		<c:forEach items="${tea_list}" var="tea">
         		<c:choose>
         			<c:when  test="${tea.tea_tid==course_view.course_teacher_tid}">
@@ -228,7 +226,6 @@ function getDeleteResult()
 		<div class="col-md-4">
 		&#12288;课程性质：
 	<select id="nature_select" name="nature_select">
-		<option value=0>选择课程性质</option>
 	<c:choose>
 	<c:when test="${course_view.course_nature==1}">
 		<option value=1 selected="selected">必修课</option>
@@ -242,7 +239,7 @@ function getDeleteResult()
 	</select>
 		</div>
 		<div class="col-md-8">
-			开课时间：<input type="text" name="course_time" value="${fn:substring(course_view.course_time,0,3)}" style="width:200px"/>
+			开课时间：<input type="text" name="course_time" value="${course_view.course_time}" style="width:200px"/>
 		</div>
 	</div>
 	<div class="form-group row">

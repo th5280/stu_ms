@@ -22,12 +22,17 @@ public class LoginController {
 			throws Exception {
 		// 调用service进行用户身份验证
 		// ...
+		request.getSession().invalidate();
 		HttpSession session = request.getSession();
-		User user = new User();
+		
+		User user = (User) session.getAttribute("user");
+		user =new User();
 		user.setUser_id(Integer.valueOf(request.getParameter("user_id").trim()));
 		user.setPassword(request.getParameter("password"));
 		user.setType(Integer.valueOf(request.getParameter("usertype")));
 		session.setAttribute("user",user);
+		
+		
 		if(loginService.checkUser(user))
 		{
 			switch(user.getType())
@@ -35,11 +40,11 @@ public class LoginController {
 				case 4:
 					return "redirect:stu_course/querySelectedCourse.action";
 				case 3:
-					return "redirect:tea/queryCourse.action";
+					return "redirect:tea_course/queryCourse.action";
 				case 2:
-					return "redirect:stu/cmanage.action";
+					return "redirect:stu/queryStu.action";
 				case 1:
-					return "redirect:stu/";
+					return "redirect:smanage/queryUser.action";
 				default:	
 			}
 		}

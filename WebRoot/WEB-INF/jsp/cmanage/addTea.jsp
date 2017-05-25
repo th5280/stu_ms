@@ -15,9 +15,11 @@
 	<!--CUSTOM BASIC STYLES-->
 	<link href="${pageContext.request.contextPath}/assets/css/basic.css" rel="stylesheet" />
 	<!--CUSTOM MAIN STYLES-->
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+	
 	<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet" type="text/css">
-
+</head>
 <script type="text/javascript">
 var select_id;
 var college_id;
@@ -81,17 +83,17 @@ function createRequest(url) {
 <div class="row">
 	<div class="col-md-12">
 		<h1 class="page-head-line">
-			Grid System
+			添加教师
 		</h1>
 		<h1 class="page-subhead-line">
-			This is dummy text , you can replace it with your original text.
+			
 		</h1>
 	</div>
 </div>
 					
 <div class="row">
 <div class="col-md-12">
-<form action="addTeaSubmit.action" method="post">
+<form action="addTeaSubmit.action" method="post" onsubmit="return checkTeaForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			&#12288;姓名：&#12288;&#12288;
@@ -117,8 +119,9 @@ function createRequest(url) {
 	</div>
 
 	<div class="form-group row">
-		<div class="col-md-4">								
-			&#12288;教职工号:&#12288;<input type="text" name="tea_tid"   readonly="true"/>
+		<div class="col-md-4">	
+		&#12288;&#12288;职称：&#12288;
+		<input type="text" id="title" name="title"/>							
 		</div>
 		<div class="col-md-8">
 			学院：
@@ -132,19 +135,22 @@ function createRequest(url) {
 	</div>
 	<div class="form-group row">
 		<div class="col-md-4">
-		&#12288;&#12288;职称：&#12288;
-		<input type="text" id="title" name="title"/>
-		</div>
-		<div class="col-md-8">
-			专业：
+		&#12288;&#12288;专业：&#12288;
 		<select id="major_select" name="major_select" style="height:30px;font-size:15px;">
 			        <option value=0>选择专业</option>
 		</select>
 		</div>
+	<div class="col-md-8">
+		密码:&nbsp;<input id="password" name="password" type="text"/>
+	</div>
+		</div>
 	</div><br/>
 	
 	<div class="form-group row">
-	
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+		</div>
 	<div class="col-md-4">
 	<input type="submit" value="提交"/>
 	</div>

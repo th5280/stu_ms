@@ -17,13 +17,13 @@
   <section class="container">
     <div class="login">
       <h1>系统登录</h1>
-    <form id="loginForm" method="post" action="login.action" onsubmit="return checkForm(this)">
+    <form id="loginForm" method="post" action="login.action" onsubmit="return checkForm(this)" autocomplete="off">
         <p>
         	账号：
 		<input id="user_id"  name="user_id" type="text"  placeholder="账号"></p>
         <p>
         	密码：
-		<input id="password" value="" name="password" type="text" placeholder="密码"></p>
+		<input id="password" value="" name="password" type="password" placeholder="密码"></p>
 		<p>
 		验证码
 		<input id="verycodeinput" value="" name="verycodeinput" type="text" placeholder="验证码">&nbsp;

@@ -28,6 +28,7 @@
 			rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/css/base.css"
 			rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
 
 
 
@@ -67,7 +68,7 @@
 <tbody>
 <c:forEach items="${studentView_list}" var="stu_view">
   	<tr>
-  		<th><input type="text" name="stu_sid" value="${stu_view.stu_sid}" readonly="true"></th>
+  		<th><input type="text" name="stu_sid" id="stu_sid" value="${stu_view.stu_sid}" readonly="true"></th>
    		<th>${stu_view.stu_name}</th>
   		<th>${courseView.course_id}</th>
   		<th>${courseView.course_name}</th>
@@ -78,7 +79,7 @@
 </c:forEach>  
 </tbody>
 </table>
-<input type="submit" value="提交" style="float:right;">
+<input type="submit" value="提交" id="submit" style="float:right;">
 
 </form>
 </div>

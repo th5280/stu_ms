@@ -85,6 +85,7 @@ public class TeaCourseController {
 		modelAndView.addObject("studentView_list", list);
 		CourseView courseView=courseService.findCourseViewById(course_id);
 		modelAndView.addObject("courseView",courseView);
+		modelAndView.setViewName("tea/inputGrade");
 		return modelAndView;
 		
 	}

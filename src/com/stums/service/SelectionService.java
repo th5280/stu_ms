@@ -14,4 +14,5 @@ public interface SelectionService {
 	public void quitCourse(Selection select);
 	
 	public List<StudentView> findStuViewListByCourse(int course_id);
+	
 }

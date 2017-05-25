@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="/stu_ms/js/manage_function.js"></script>
 		<script type="text/javascript" src="/stu_ms/js/jquery-1.4.4.min.js"></script>
 		<link href="css/base.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
 
 		
 <script type="text/javascript">

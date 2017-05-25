@@ -24,6 +24,7 @@ public class SelectionServiceImpl implements SelectionService{
 	
 	public void addSelectedCourse(Selection select) {
 		selectionCustomMapper.addSelectedCourse(select);
+		
 	}
 	
 	public List<CourseView> findCourseViewListByStu(int stu_sid) {

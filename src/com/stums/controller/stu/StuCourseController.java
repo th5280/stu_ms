@@ -42,7 +42,7 @@ public class StuCourseController {
 		List<String> sem_list = new ArrayList();
 		for(int i=0;i<courseview_list.size();i++)
 		{
-			String sem = courseview_list.get(i).getCourse_time().substring(0, 3);
+			String sem = courseview_list.get(i).getCourse_time().substring(0, 4);
 			if(!sem_list.contains(sem))
 			{
 				sem_list.add(sem);

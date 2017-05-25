@@ -10,6 +10,6 @@
 	</select>
 	
 	<insert id="addGrade" parameterType="grade">
-		insert into grade(stu_sid,course_id,usual_grade,test_grade,final_grade) VALUES(#{stu_sid},#{course_id},#{usual_grade},#{test_grade},#{final_grade})
+		replace into grade(stu_sid,course_id,usual_grade,test_grade,final_grade) VALUES(#{stu_sid},#{course_id},#{usual_grade},#{test_grade},#{final_grade})
 	</insert>
 </mapper>

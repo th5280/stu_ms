@@ -12,15 +12,16 @@
 			href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
 			rel="stylesheet" />
 		<!-- FONTAWESOME STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
 		<!--CUSTOM BASIC STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/basic.css"
+		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
 			rel="stylesheet" />
 		<!--CUSTOM MAIN STYLES-->
-<link href="${pageContext.request.contextPath}/assets/css/custom.css"
+		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
 
 <script type="text/javascript">
 
@@ -148,17 +149,17 @@ function getDeleteResult()
 <div class="row">
 	<div class="col-md-12">
 		<h1 class="page-head-line">
-			Grid System
+			添加课程
 		</h1>
 		<h1 class="page-subhead-line">
-			This is dummy text , you can replace it with your original text.
+			课程时间格式（例）：第四学期1~16周周七3~4节
 		</h1>
 	</div>
 </div>
 					
 <div class="row">
 <div class="col-md-12">
-<form action="addStuSubmit.action" method="post">
+<form action="addCourseSubmit.action" method="post" onsubmit="return checkCourseForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 		&#12288;课程性质：

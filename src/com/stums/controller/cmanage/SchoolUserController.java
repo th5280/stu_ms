@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stums.po.User;
+import com.stums.service.StudentService;
+import com.stums.service.TeacherService;
 import com.stums.service.UserService;
 
 
@@ -23,7 +25,11 @@ public class SchoolUserController {
 	@Resource(name="userServiceSuperImpl")
 	private UserService userService;
 
+	@Resource(name="studentServiceImpl")
+	private StudentService studentService;
 	
+	@Resource(name="teacherServiceImpl")
+	private TeacherService teacherSerivice;
 	
 	@RequestMapping("/editUserSubmit")
 	public ModelAndView editCoMaUserSubmit(HttpServletRequest request,HttpServletResponse response)
@@ -69,12 +75,13 @@ public class SchoolUserController {
 		user.setUser_id(Integer.valueOf(request.getParameter("user_id")));
 		user.setPassword(request.getParameter("password").trim());
 		userService.addUser(user);
-		ModelAndView modelAndView = new ModelAndView("redirect:queryUser.action");
+		ModelAndView modelAndView = new ModelAndView("redirect:/stu/queryStu.action");
 		return modelAndView;
 	}
 	@RequestMapping("/addUser")
 	public ModelAndView addUser(HttpServletRequest request,HttpServletResponse response)
 	{
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("cmanage/addUser");
 		return modelAndView;

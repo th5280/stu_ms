@@ -31,9 +31,8 @@
 
             <div class="header-right">
 
-                <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-                <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-                <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                
+                <a href="${pageContext.request.contextPath}/logout.action" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
             </div>
         </nav>
@@ -43,21 +42,18 @@
                 <ul class="nav" id="main-menu">
                     <li>
                         <div class="user-img-div">
-                            <img src="assets/img/user.png" class="img-thumbnail" />
-
+                            <img src="${pageContext.request.contextPath}/assets/img/user.png" class="img-thumbnail" />
                             <div class="inner-text">
-                                Jhon Deo Alex
+                                ${sessionScope.user.user_id}
                             <br />
-                                <small>Last Login : 2 Weeks Ago </small>
+                                <small>身份:普通管理员 </small>
                             </div>
                         </div>
 
                     </li>
 
 
-                    <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
-                    </li>
+                   
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>学生管理<span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
@@ -117,9 +113,7 @@
                             </li> 
                         </ul>
                     </li>
-                    <li>
-                        <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
-                    </li>
+                   
                 </ul>
 
             </div>

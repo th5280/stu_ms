@@ -18,6 +18,8 @@
 		<!--CUSTOM BASIC STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/basic.css"
 			rel="stylesheet" />
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		
 		<!--CUSTOM MAIN STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
@@ -92,7 +94,7 @@ function getResult() {
 					
 <div class="row">
 <div class="col-md-12">
-<form action="editTeaSubmit.action" method="post">
+<form action="editTeaSubmit.action" method="post" onsubmit="return checkTeaForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			&#12288;姓名：&#12288;&#12288;

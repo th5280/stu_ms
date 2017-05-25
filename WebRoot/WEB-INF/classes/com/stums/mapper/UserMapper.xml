@@ -18,6 +18,6 @@
 	</select>
 	
 	<insert id="addUser" parameterType="user">
-		insert into user values(#{user_id},#{password},#{type})
+		replace into user values(#{user_id},#{password},#{type})
 	</insert>
 </mapper>

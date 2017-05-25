@@ -59,6 +59,8 @@ public class CourseServiceImpl implements CourseService{
 		List<CourseView> list = courseCustomMapper.findUnSelectedCourse(stu);
 		for(CourseView cv:list)
 		{
+			if(cv.getCourse_selection()==cv.getCourse_stu_num())
+				list.remove(cv);
 			cv.setCourse_time(cv.getCourse_time().replace("$", " "));
 		}
 		return list;

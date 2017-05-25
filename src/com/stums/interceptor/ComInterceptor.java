@@ -45,7 +45,7 @@ public class ComInterceptor implements HandlerInterceptor{
 			}
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("../404.jsp");
-			dispatcher .forward(request, response);
+			dispatcher.forward(request, response);
 			return false;
 		}
 		return true;

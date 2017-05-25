@@ -105,7 +105,7 @@ public class CourseController {
 			result+=cfv.getCourse_name()+"#";
 			result+=(cfv.getCourse_nature()==1?"必修课":"选修课")+"#";
 			result+=cfv.getCourse_credit()+"#";
-			result+=cfv.getCourse_time()+"#";
+			result+=cfv.getCourse_time().replace("$", " ")+"#";
 			result+=cfv.getCourse_classroom()+"#";
 			result+=cfv.getCourse_stu_num()+"#";
 			result+=cfv.getCourse_selection()+"#";

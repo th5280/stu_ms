@@ -21,6 +21,8 @@
 		<!--CUSTOM MAIN STYLES-->
 		<link href="${pageContext.request.contextPath}/assets/css/custom.css"
 			rel="stylesheet" />
+	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/checkForm.js"></script>
+		
 			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
 var college_id;
@@ -92,7 +94,7 @@ function getResult() {
 					
 <div class="row">
 <div class="col-md-12">
-<form action="addStuSubmit.action" method="post">
+<form action="addStuSubmit.action" method="post" onsubmit="return checkStuForm(this)">
 	<div class="form-group row">
 		<div class="col-md-4">
 			&#12288;姓名：&#12288;&#12288;
